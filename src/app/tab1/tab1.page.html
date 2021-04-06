@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Home
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" >
+  <ion-grid>
+    <ion-row>
+      <ion-col class="numbers">
+        <h1>{{time | async}}</h1>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="buttons">
+        <ion-button class="button" *ngIf="state === 'start'"  size="large" fill="outline" color="warning" (click)="pauseTimer()"><ion-icon name="pause"></ion-icon></ion-button>
+        <!-- <ion-button class="button" *ngIf="state === 'start'"  size="large" fill="outline" color="danger" (click)="stopTimer()"><ion-icon name="square"></ion-icon></ion-button> -->
+        <ion-button class="button" *ngIf="state === 'pause'"  size="large" fill="outline" color="primary" (click)="resumeTimer(startDuration)"><ion-icon name="play"></ion-icon></ion-button>
+        <ion-button class="button" *ngIf="state === 'pause'"  size="large" fill="outline" color="danger" (click)="stopTimer()"><ion-icon name="square"></ion-icon></ion-button>
+        <ion-button class="button" *ngIf="state === 'stop'"   size="large" fill="outline" color="primary" (click)="startTimer(startDuration)"><ion-icon name="play"></ion-icon></ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+ 
+  
+</ion-content>
